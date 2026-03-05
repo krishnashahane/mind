@@ -1,0 +1,9 @@
+version: '3.6'
+services:
+  mind:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mind
+    ports:
+      - 3000:3000
