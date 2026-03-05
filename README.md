@@ -1,112 +1,136 @@
-<div align="center">
+<h1 align="center">Mind</h1>
 
-  [<img src="demo-img.jpg">](#)
+<p align="center">
+  <strong>Your personal, private AI assistant — running entirely in your browser.</strong>
+</p>
 
-</div>
+<p align="center">
+  <a href="https://github.com/krishnashahane/mind">
+    <img src="https://img.shields.io/github/stars/krishnashahane/mind?style=flat-square" alt="Stars" />
+  </a>
+  <a href="https://github.com/krishnashahane/mind/fork">
+    <img src="https://img.shields.io/github/forks/krishnashahane/mind?style=flat-square" alt="Forks" />
+  </a>
+  <a href="https://github.com/krishnashahane/mind/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/krishnashahane/mind?style=flat-square" alt="License" />
+  </a>
+</p>
 
-<h1 align="center">
-  Mind
-</h1>
+---
 
-<div align="center">
+## What is Mind?
 
-</div>
+Mind is a fully client-side AI chat application that uses WebGPU to run open-source large language models directly inside your browser. Nothing leaves your machine — no API keys, no cloud servers, no data collection. Just you and the model, running locally.
 
-**Mind** is your private AI that leverages WebGPU to run large language models (LLMs) natively & privately in your browser, bringing you the most feature rich in-browser AI experience.
+## Key Highlights
 
-# Features
+- **Zero data leaves your device** — every model runs on your hardware via WebGPU. Your conversations stay yours.
+- **Works offline** — after the first model download, no internet connection is needed.
+- **Persistent chat history** — conversations are saved in your browser's local storage across sessions.
+- **Multi-model support** — switch between Gemma, Llama 2/3, Mistral, DeepSeek, Qwen, and more.
+- **File conversations** — drop in PDFs, code files, or text documents and ask questions about them. Embeddings are computed locally using Xenova Transformers.
+- **Custom memory** — set persistent instructions so the AI remembers your preferences across chats.
+- **Export anywhere** — save conversations as JSON or Markdown with one click.
+- **Voice input** — speak your prompts using the browser's built-in speech recognition.
+- **Response regeneration** — not happy with an answer? Regenerate it instantly.
+- **Responsive layout** — works on desktop and mobile (WebGL-capable devices).
+- **Dark & light themes** — toggle between modes to suit your preference.
+- **Markdown & syntax highlighting** — AI responses render rich markdown with code blocks highlighted.
 
-- **In-browser privacy:** All AI models run locally (client side) on your hardware, ensuring that your data is processed only on your pc. No server-side processing!
-- **Offline:** Once the initial download of a model is processed, you'll be able to use it without an active internet connection.
-- **Chat history:** Access and manage your conversation history.
-- **Supports new open-source models:** Chat with popular open-source models such as Gemma, Llama2 & 3 and Mistral!
-- **Responsive design:** If your phone supports WebGl, you'll be able to use Mind just as you would on desktop.
-- **Intuitive UI:** Inspired by popular AI interfaces such as Gemini and ChatGPT to enhance similarity in the user experience.
-- **Markdown & code highlight:** Messages returned as markdown will be displayed as such & messages that include code, will be highlighted for easy access.
-- **Chat with files:** Load files (pdf & all non-binary files supported - even code files) and ask the models questions about them - fully local! Your documents never gets processed outside of your local environment, thanks to [XenovaTransformerEmbeddings](https://huggingface.co/Xenova/all-MiniLM-L6-v2) & [MemoryVectorStore](https://js.langchain.com/v0.1/docs/integrations/vectorstores/memory/)
-- **Custom memory support:** Add custom instructions/memory to allow the AI to provide better and more personalized responses.
-- **Export chat messages:** Seamlessly generate and save your chat messages in either json or markdown format.
-- **Voice input support:** Use voice interactions to interact with the models.
-- **Regenerate responses:** Not quite the response you were hoping for? Quickly regenerate it without having to write out your prompt again.
-- **Light & Dark mode:** Switch between light & dark mode.
+## Tech Stack
 
-# Why?
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 14 (App Router) |
+| UI | React 18, Tailwind CSS, Radix UI, Framer Motion |
+| AI Runtime | WebLLM (MLC) |
+| Embeddings | Xenova Transformers + LangChain |
+| State | Zustand (persisted) |
+| Language | TypeScript |
 
-This project is meant to be the closest attempt at bringing the familiarity & functionality from popular AI interfaces such as ChatGPT and Gemini into an in-browser experience.
+## Getting Started
 
-# Browser support
+### Prerequisites
 
-By default, WebGPU is enabled and supported in both Chrome and Edge. However, it is possible to enable it in Firefox and Firefox Nightly.
-Check the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API#browser_compatibility) for more information.
+- Node.js 18+
+- npm
+- A browser with WebGPU support (Chrome 113+, Edge 113+)
 
-# How to Install
+### Local Development
 
-> This is a Next.js application and requires Node.js (18+) and npm installed to run the project locally.
-
-## Install from source
-
-If you want to setup and run the project locally, follow the steps below:
-
-**1. Clone the repository to a directory on your pc via command prompt:**
-
-```
-git clone https://github.com/krishnashahane/mind
-```
-
-**2. Open the folder:**
-
-```
+```bash
+# Clone the repository
+git clone https://github.com/krishnashahane/mind.git
 cd mind
-```
 
-**3. Install dependencies:**
-
-```
+# Install dependencies
 npm install
-```
 
-**4. Start the development server:**
-
-```
+# Start the dev server
 npm run dev
 ```
 
-**5. Go to [localhost:3000](http://localhost:3000) and start chatting!**
+Open [http://localhost:3000](http://localhost:3000) and start chatting.
 
-## Docker
+### Production Build
 
+```bash
+npm run build
+npm run start
 ```
+
+### Docker
+
+```bash
 docker build -t mind .
 docker run -d -p 3000:3000 mind
 ```
 
-Or use `docker-compose`:
+Or with Docker Compose:
 
-```
+```bash
 docker compose up
 ```
 
-> If you've made changes and want to rebuild, you can simply run `docker-compose up --build`
+## Hardware Requirements
 
-# Roadmap
+WebGPU models need GPU memory to run:
 
-- [ ] **Multiple file embeddings:** The ability to embed multiple files instead of one at a time for each session.
-- [ ] **Prompt management system:** Select from and add different system prompts to quickly use in a session.
+| Model Size | GPU Memory Required |
+|-----------|-------------------|
+| 3B parameters | ~3 GB |
+| 7B parameters | ~6 GB |
 
-# Contributing
+Smaller models may struggle with document embeddings compared to larger ones.
 
-Contributions are more than welcome! However, please make sure to read the [contributing guidelines](CONTRIBUTING.md) first.
+## Browser Compatibility
 
-# Hardware requirements
+WebGPU is enabled by default in Chrome and Edge (113+). Firefox support is experimental — check [MDN compatibility table](https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API#browser_compatibility) for details.
 
-> To run the models efficiently, you'll need a GPU with enough memory. 7B models require a GPU with about 6GB memory whilst 3B models require around 3GB.
->
-> Smaller models might not be able to process file embeddings as efficient as larger ones.
+## Project Structure
 
-# Acknowledgements & credits
+```
+mind/
+  src/
+    app/          # Next.js app router pages & layouts
+    components/   # React components (chat, sidebar, UI primitives)
+    hooks/        # Custom hooks (chat store, memory, speech)
+    lib/          # Utilities, model config, types, workers
+    providers/    # Context providers (theme, WebLLM engine)
+  public/         # Static assets (icons, model logos)
+```
 
-Mind is built using the [WebLLM](https://github.com/mlc-ai/web-llm) project, utilizing [HuggingFace](https://huggingface.co/), open source LLMs and [LangChain](https://www.langchain.com/).
+## Roadmap
 
-# Author
+- [ ] Multi-file embeddings per session
+- [ ] Prompt template library
+- [ ] Image generation support
+- [ ] PWA with service worker caching
 
-Mind is created and maintained by [Krishna Shahane](https://github.com/krishnashahane).
+## Contributing
+
+Contributions welcome! Please read the [contributing guidelines](CONTRIBUTING.md) before submitting a PR.
+
+## License
+
+[MIT](LICENSE) - Krishna Shahane

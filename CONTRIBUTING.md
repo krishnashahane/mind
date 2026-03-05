@@ -1,35 +1,38 @@
-# Contribution guidelines for Mind
+# Contributing to Mind
 
-First off, a huge thank you for considering contributing to Mind! We're incredibly grateful for your interest in making this project even better.
+Thanks for your interest in contributing! Here's how to get started.
 
-> Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, we will reciprocate that respect by addressing your issue and assisting you finalize your pull requests.
+## How to Contribute
 
-# Your first contribution
+1. Fork this repository
+2. Create a feature branch (`git checkout -b feat/your-feature`)
+3. Make your changes
+4. Commit using [conventional commits](https://www.conventionalcommits.org/) (e.g. `feat: add new model selector`)
+5. Push and open a pull request
 
-Following these guidelines ensures a smooth and efficient process for everyone involved. It shows respect for the developers' time and helps us quickly address your valuable contributions. To contribute:
+## Commit Format
 
-1. Create your own fork of the repository
-2. Do the changes in your fork
-3. Open a pull request when you feel like the changes are finished.
+```
+type: short description
 
-This lets us review your work and discuss any necessary adjustments.
+type = feat | fix | refactor | style | chore | docs | test
+```
 
-> Make sure to follow a [semantic commit message](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716) style.
->
-> Example of a PR:
+## Development Setup
 
-> ```
-> feat: add voice input support
-> ^--^  ^------------^
-> |     |
-> |     +-> Summary in present tense.
-> |
-> +-------> Type: feat, fix, refactor, style, chore, docs or test.```
->
-> First time opening a PR? Check [this](https://makeapullrequest.com/) out.
+```bash
+git clone https://github.com/krishnashahane/mind.git
+cd mind
+npm install
+npm run dev
+```
 
-# Suggest a feature, enhancement or bug
+## Reporting Issues
 
-You will find the current roadmap in the readme of the repository. If you wish to suggest a feature or enhancement, make sure to open an issue first. We'll then most likely include this in the readme file.
+Open an issue with a clear description, steps to reproduce, and expected vs actual behavior.
 
-Thank you again for your contribution!
+## Code Style
+
+- Follow existing patterns in the codebase
+- Use TypeScript for all new files
+- Run `npm run lint` before submitting

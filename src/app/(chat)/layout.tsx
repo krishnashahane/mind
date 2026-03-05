@@ -9,7 +9,7 @@ import { Suspense } from "react";
 const metainfo = {
   name: "Mind",
   title: "Mind",
-  description: "Chat with web-llm models in the browser",
+  description: "Private in-browser AI chat powered by WebGPU - by Krishna Shahane",
   url: "https://mind-ai.vercel.app",
   icons: {
     icon: "/favicon-32x32.png",
