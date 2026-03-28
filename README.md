@@ -129,4 +129,4 @@ mind/
 
 ## License
 
-[MIT](LICENSE) - Krishna Shahane
+[MIT]
