@@ -127,10 +127,6 @@ mind/
 - [ ] Image generation support
 - [ ] PWA with service worker caching
 
-## Contributing
-
-Contributions welcome! Please read the [contributing guidelines](CONTRIBUTING.md) before submitting a PR.
-
 ## License
 
 [MIT](LICENSE) - Krishna Shahane
